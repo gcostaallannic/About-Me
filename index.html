@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Gaspard Costa-Allannic</title>
+    <title>CV & Portfolio | Gaspard Costa-Allannic</title>
     <style>
         :root {
             --bg-primary: #f8fafc;
             --bg-secondary: #ffffff;
             --text-main: #1e293b;
             --text-muted: #64748b;
-            --accent: #0f766e; /* Teal sombre élégant pour la géo */
+            --accent: #0f766e;
             --accent-light: #ccfbf1;
             --border: #e2e8f0;
             --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
@@ -31,7 +31,7 @@
         }
 
         .container {
-            max-width: 1050px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 20px;
         }
@@ -43,6 +43,7 @@
             padding: 40px 0;
             margin-bottom: 40px;
             box-shadow: var(--shadow);
+            position: relative;
         }
 
         .header-grid {
@@ -61,30 +62,37 @@
         h1 {
             font-size: 2.2rem;
             color: var(--accent);
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
 
         .subtitle {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            font-weight: 400;
-            margin-bottom: 15px;
-        }
-
-        .tags-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 10px;
-        }
-
-        .tag-tech {
-            background-color: var(--accent-light);
-            color: var(--accent);
-            font-size: 0.85rem;
+            font-size: 1.3rem;
+            color: var(--text-main);
             font-weight: 600;
-            padding: 4px 12px;
-            border-radius: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .profile-desc {
+            color: var(--text-muted);
+            max-width: 650px;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            background: var(--bg-primary);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .contact-info strong {
+            color: var(--text-main);
         }
 
         /* Layout global */
@@ -123,32 +131,101 @@
             padding-bottom: 8px;
         }
 
-        .info-list {
-            list-style: none;
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
         }
 
-        .info-list li {
-            margin-bottom: 12px;
+        .tag-tech {
+            background-color: var(--accent-light);
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        
+        .tag-skill {
+            background-color: #f1f5f9;
+            color: var(--text-main);
+            font-size: 0.85rem;
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+        }
+
+        /* CV Timeline Section */
+        .section-title {
+            font-size: 1.6rem;
+            color: var(--text-main);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cv-item {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        @media (min-width: 600px) {
+            .cv-item {
+                grid-template-columns: 140px 1fr;
+                gap: 20px;
+            }
+        }
+
+        .cv-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .cv-date {
+            font-weight: 600;
+            color: var(--accent);
             font-size: 0.95rem;
         }
 
-        .info-list strong {
+        .cv-content h4 {
+            font-size: 1.1rem;
             color: var(--text-main);
+            margin-bottom: 2px;
+        }
+
+        .cv-content .company {
+            display: block;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .cv-content ul {
+            list-style-type: disc;
+            padding-left: 18px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        
+        .cv-content ul li {
+            margin-bottom: 4px;
         }
 
         /* Zone Projets */
-        .content-area {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
-
         .project-card {
             background-color: var(--bg-secondary);
             border: 1px solid var(--border);
             border-radius: 12px;
             padding: 24px;
             box-shadow: var(--shadow);
+            margin-bottom: 30px;
         }
 
         .project-header {
@@ -169,7 +246,6 @@
             font-size: 1rem;
         }
 
-        /* Section Spécifique : Chaîne de traitement */
         .workflow-box {
             background-color: #f1f5f9;
             border-left: 4px solid var(--accent);
@@ -207,7 +283,6 @@
             font-weight: bold;
         }
 
-        /* Bloc Média / Vidéo ou Carte */
         .media-placeholder {
             background-color: #e2e8f0;
             border: 2px dashed #cbd5e1;
@@ -221,28 +296,6 @@
             text-align: center;
             padding: 20px;
             margin-top: 15px;
-        }
-
-        .media-placeholder svg {
-            margin-bottom: 8px;
-            color: var(--text-muted);
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--accent);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: background 0.2s;
-            margin-top: 10px;
-        }
-
-        .btn:hover {
-            background-color: #115e59;
         }
 
         footer {
@@ -262,18 +315,17 @@
         <div class="container header-grid">
             <div>
                 <h1>Gaspard Costa-Allannic</h1>
-                <div class="subtitle">Ingénierie de Projets en Développement Local & SIG</div>
-                <p style="color: var(--text-muted); max-width: 600px;">
-                    Cartographe spécialisé dans le traitement de données spatialisées complexes et la création de rendus visuels à forte valeur ajoutée. Allier rigueur analytique et design graphique.
+                <div class="subtitle">Recherche d'alternance en aménagement du territoire</div>
+                <p class="profile-desc">
+                    Étudiant en géomatique, prochainement en Master 2 MÉCI - Aménagement et Développement Local à l'Université Paris Cité. Je souhaite mobiliser mes compétences en SIG, cartographie et diagnostic territorial au service de projets locaux et de politiques territoriales.
                 </p>
             </div>
             <div>
-                <div class="tags-container">
-                    <span class="tag-tech">ArcGIS Pro</span>
-                    <span class="tag-tech">ArcGIS Online</span>
-                    <span class="tag-tech">Arcade</span>
-                    <span class="tag-tech">Adobe Illustrator</span>
-                    <span class="tag-tech">Inkscape</span>
+                <div class="contact-info">
+                    <div><strong>📍 Localisation :</strong> Paris (75014), France</div>
+                    <div><strong>📞 Téléphone :</strong> +33 7 83 02 76 41</div>
+                    <div><strong>✉️ Email :</strong> gaspardeleve@gmail.com</div>
+                    <div><strong>🔗 Réseau :</strong> <a href="https://www.linkedin.com/in/gaspard-costa-allannic/" style="color: var(--accent); text-decoration: none;">Profil LinkedIn</a></div>
                 </div>
             </div>
         </div>
@@ -281,31 +333,141 @@
 
     <div class="container main-layout">
         
-        <!-- Colonne Gauche : Profil et Compétences -->
+        <!-- Colonne Gauche : Compétences -->
         <div class="sidebar">
             <div class="card">
-                <h2>À propos</h2>
-                <ul class="info-list">
-                    <li><strong>Formation :</strong> Master MECI ADL / Master TGAE (Université Paris Cité)</li>
-                    <li><strong>Recherche :</strong> Apprentissage dans les secteurs des Transports ou de l'Immobilier</li>
-                    <li><strong>Expérience :</strong> Esri France (Stage)</li>
-                </ul>
+                <h2>Outils & Logiciels</h2>
+                <div class="tags-container">
+                    <span class="tag-tech">Solutions ESRI</span>
+                    <span class="tag-tech">QGIS</span>
+                    <span class="tag-tech">RStudio</span>
+                    <span class="tag-tech">Suite Adobe</span>
+                    <span class="tag-tech">Inkscape</span>
+                    <span class="tag-tech">Google Earth Engine</span>
+                    <span class="tag-tech">Microsoft Office</span>
+                </div>
             </div>
 
             <div class="card">
-                <h2>Expertises</h2>
-                <ul class="info-list" style="padding-left: 15px; list-style-type: disc; color: var(--text-muted);">
-                    <li style="margin-bottom: 8px;"><span style="color: var(--text-main);">Cartographie thématique</span> (élections, socio-démographie, environnement)</li>
-                    <li style="margin-bottom: 8px;"><span style="color: var(--text-main);">Automation & Expressions</span> (Langage Arcade pour la symbologie dynamique)</li>
-                    <li style="margin-bottom: 8px;"><span style="color: var(--text-main);">Design Graphique</span> (Optimisation vectorielle et mise en page éditoriale)</li>
+                <h2>Mots-clés & Expertises</h2>
+                <div class="tags-container" style="gap: 6px;">
+                    <span class="tag-skill">Aménagement du territoire</span>
+                    <span class="tag-skill">Diagnostic territorial</span>
+                    <span class="tag-skill">Géomatique</span>
+                    <span class="tag-skill">Analyse spatiale</span>
+                    <span class="tag-skill">Développement local</span>
+                    <span class="tag-skill">Gestion de projet</span>
+                    <span class="tag-skill">Politiques publiques</span>
+                    <span class="tag-skill">StoryMap</span>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Langues</h2>
+                <ul style="list-style: none; color: var(--text-muted); font-size: 0.95rem;">
+                    <li style="margin-bottom: 5px;"><strong>Anglais :</strong> Niveau professionnel</li>
+                    <li style="margin-bottom: 5px;"><strong>Portugais :</strong> Notions</li>
+                    <li><strong>Allemand :</strong> Notions</li>
                 </ul>
             </div>
         </div>
 
-        <!-- Colonne Droite : Galerie de Projets Structurés -->
-        <div class="content-area">
+        <!-- Colonne Droite : Expériences, Formations & Portfolio -->
+        <div>
             
-            <!-- Projet 1 -->
+            <!-- SECTION : EXPÉRIENCES -->
+            <div class="card" style="margin-bottom: 30px;">
+                <h2 class="section-title">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--accent)"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                    Expériences Professionnelles
+                </h2>
+
+                <div class="cv-item">
+                    <div class="cv-date">Mar. 2026 - Sep. 2026</div>
+                    <div class="cv-content">
+                        <h4>Stagiaire - cartographe, géomaticien, chargé marketing</h4>
+                        <span class="company">Esri France</span>
+                        <ul>
+                            <li>Rattaché à l'équipe contenu, développement du programme : Map The News.</li>
+                            <li>Contribution à des missions de cartographie, de géomatique, de marketing et de communication dans le cadre du programme.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-date">2025</div>
+                    <div class="cv-content">
+                        <h4>Stage de recherche - Télédétection</h4>
+                        <span class="company">Université des sciences et technologies de Hanoi (USTH)</span>
+                        <ul>
+                            <li>Stage de second semestre de Master 1 TGAE.</li>
+                            <li>Sujet de mémoire : Étude de la relation entre les températures de surface et l'occupation du sol à Hanoi.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="cv-item">
+                    <div class="cv-date">2021 - 2023</div>
+                    <div class="cv-content">
+                        <h4>Contributeur Cartographique & StoryMap</h4>
+                        <span class="company">Musée départemental Albert-Kahn</span>
+                        <ul>
+                            <li>Contribution à la géolocalisation d'images d'archives du voyage d'Albert Kahn en Amérique du Sud (1909).</li>
+                            <li>Participation à la création de la StoryMap de l'exposition « Rio-Buenos-Aires 1909, modernités sud-américaines ».</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-date">Été 2022 - 2025</div>
+                    <div class="cv-content">
+                        <h4>Agent de service hôtelier & Assistant médical</h4>
+                        <span class="company">Hôpital Saint-Joseph</span>
+                        <ul>
+                            <li>Travail en équipe au sein du service de maternité et accueil de la patientèle en imagerie médicale.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION : FORMATIONS -->
+            <div class="card" style="margin-bottom: 40px;">
+                <h2 class="section-title">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--accent)"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                    Formation
+                </h2>
+
+                <div class="cv-item">
+                    <div class="cv-date">2024 - 2026</div>
+                    <div class="cv-content">
+                        <h4>Master Télédétection Géomatique Appliquée à l'Environnement (TGAE)</h4>
+                        <span class="company">Université Paris Cité</span>
+                        <ul>
+                            <li>Enseignements suivis : SIG, télédétection, Radar, observation de la Terre, Statistiques, Cartographie, Python, suivi environnemental.</li>
+                            <li>Stage de terrain à Fontainebleau dans le cadre de l'observation des landes sèches.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-date">2021 - 2024</div>
+                    <div class="cv-content">
+                        <h4>Licence Géographie, Aménagement, Environnement, Développement</h4>
+                        <span class="company">Université Paris Cité</span>
+                        <ul>
+                            <li>Spécialisation dans la géomatique, la télédétection et l'aménagement.</li>
+                            <li>Stages de terrain : Ville de Tours (étude de l'aménagement du SPR) ; Vallée de Chevreuse (géomorphologie).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION : PORTFOLIO DÉTAILLÉ -->
+            <h2 class="section-title" style="margin-top: 20px;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--accent)"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                Portfolio & Réalisations
+            </h2>
+            
             <div class="project-card">
                 <div class="project-header">
                     <h3 class="project-title">#MapTheNews — Data Journalisme Cartographique</h3>
@@ -314,8 +476,6 @@
                 <p class="project-desc">
                     Série de publications cartographiques analysant l'actualité à travers le prisme de la donnée géographique (données électorales, évolution démographique, radiance nocturne).
                 </p>
-
-                <!-- Chaîne de traitement intégrée systématiquement -->
                 <div class="workflow-box">
                     <h4>
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
@@ -325,18 +485,10 @@
                         <div class="step">
                             <strong>1. Collecte & Filtrage :</strong> Données brutes (Insee / Ministères) ➔ Jointures attributaires dans ArcGIS Pro.
                         </div>
-                        <div class="step">
-                            <span class="step-arrow">➔</span>
-                            <strong>2. Analyse Spatiale :</strong> Discrétisation et sémiologie graphique adaptées.
-                        </div>
-                        <div class="step">
-                            <span class="step-arrow">➔</span>
-                            <strong>3. Export & Design :</strong> Export AIX / PDF vectoriel ➔ Nettoyage des couches, typographie et harmonisation colorimétrique sous Adobe Illustrator.
-                        </div>
+                        <div class="step"><span class="step-arrow">➔</span> <strong>2. Analyse Spatiale :</strong> Discrétisation et sémiologie graphique adaptées.</div>
+                        <div class="step"><span class="step-arrow">➔</span> <strong>3. Export & Design :</strong> Export AIX / PDF vectoriel ➔ Nettoyage, typographie et harmonisation colorimétrique sous Adobe Illustrator.</div>
                     </div>
                 </div>
-
-                <!-- Zone de démonstration visuelle / Vidéo à l'appui -->
                 <div class="media-placeholder">
                     <div>
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:block; margin:0 auto 8px;"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
@@ -345,7 +497,6 @@
                 </div>
             </div>
 
-            <!-- Projet 2 -->
             <div class="project-card">
                 <div class="project-header">
                     <h3 class="project-title">#VueDenHaut — Quiz Géographiques Hebdomadaires</h3>
@@ -354,23 +505,16 @@
                 <p class="project-desc">
                     Création et animation d'un concept de valorisation du territoire par l'image satellite et les modèles numériques de terrain (MNT), appliqué à des repères emblématiques (Piton des Neiges, Viaduc de Millau, Bassin d'Arcachon).
                 </p>
-
                 <div class="workflow-box">
                     <h4>
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
                         Chaîne de traitement & Flux de production
                     </h4>
                     <div class="workflow-steps">
-                        <div class="step">
-                            <strong>1. Sourcing :</strong> Sélection d'imagerie Sentinel / Landsat et données altimétriques haute résolution.
-                        </div>
-                        <div class="step">
-                            <span class="step-arrow">➔</span>
-                            <strong>2. Traitement d'image :</strong> Compositions colorées (fausses couleurs / infrarouge) et ombrages portés sous ArcGIS Pro pour accentuer le relief.
-                        </div>
+                        <div class="step"><strong>1. Sourcing :</strong> Sélection d'imagerie Sentinel / Landsat et données altimétriques.</div>
+                        <div class="step"><span class="step-arrow">➔</span> <strong>2. Traitement d'image :</strong> Compositions colorées et ombrages portés sous ArcGIS Pro pour accentuer le relief.</div>
                     </div>
                 </div>
-
                 <div class="media-placeholder">
                     <div>
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:block; margin:0 auto 8px;"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
@@ -379,42 +523,12 @@
                 </div>
             </div>
 
-            <!-- Projet 3 -->
-            <div class="project-card">
-                <div class="project-header">
-                    <h3 class="project-title">StoryMap Interactive — Musée Albert Kahn</h3>
-                    <span class="tag-tech" style="background:#f1f5f9; color:var(--text-main);">Web SIG</span>
-                </div>
-                <p class="project-desc">
-                    Scénarisation et développement d'une application de cartographie narrative mettant en valeur des archives géoréférencées et des données historiques pour le grand public.
-                </p>
-
-                <div class="media-placeholder">
-                    <div>
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:block; margin:0 auto 8px;"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                        <span>[Zone d'intégration iframe : Application ArcGIS StoryMaps dynamique]</span>
-                    </div>
-                </div>
-                <a href="#" class="btn">Consulter la StoryMap</a>
-            </div>
-
-            <!-- Projet 4 -->
-            <div class="project-card">
-                <div class="project-header">
-                    <h3 class="project-title">Recherche & Télédétection — Département REMOSAT</h3>
-                    <span class="tag-tech" style="background:#f1f5f9; color:var(--text-main);">International</span>
-                </div>
-                <p class="project-desc">
-                    Analyse environnementale et traitement de données satellitaires lors d'un séjour de recherche au sein de l'USTH à Hanoi.
-                </p>
-            </div>
-
         </div>
     </div>
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 Gaspard Costa-Allannic. Codé sur mesure en HTML/CSS.</p>
+            <p>&copy; 2026 Gaspard Costa-Allannic. CV & Portfolio interactif.</p>
         </div>
     </footer>
 
